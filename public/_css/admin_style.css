@@ -1,0 +1,63 @@
+body{	
+	background-color: #5179AA;
+	margin: 0;
+	padding: 0;
+	font-family: verdana,serif;
+	padding-right: 20px;
+}
+
+#cus_navbar
+{
+	background-color: #354C6B;
+	box-shadow: 3px 2px 5px #333;
+	border-color: transparent;
+}
+
+#cus_navbar li
+{
+	background-color: #354C6B;
+	margin-right: 5px;
+
+}
+
+ #cus_navbar li a
+ {
+ 	color: #ccc;
+ 	font-weight: bolder;
+ }
+
+#cus_navbar li a:hover
+{
+	background-color: #24354D;
+	box-shadow: 1px 1px 5px #333;
+}
+
+#cus_navbar form
+{
+	padding:15px;
+	position: absolute;
+}
+
+#main_logo
+{
+	float: left;
+}
+
+#error-msg
+{
+	color:#f00;
+	font-family: arial;
+}
+
+.dash_link > .btn
+{
+	color:#feeeef;
+	display: block;
+	width: 150px;
+}
+
+a.dash_link
+{
+	text-decoration: none;
+}
+
