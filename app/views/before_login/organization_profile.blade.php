@@ -32,10 +32,11 @@
 			
 			<div class="alert alert-info"><BIG><strong>{{{$org['org_name']}}}</strong></BIG> </div>
 
-			<h4> <u>Address</u> </h4> <div style="font-size:1em; color:#fff;">{{$org['org_address']}}</div>
-			<p><br/>	
 			<h4> <u>About us:</u> </h4> <div style="font-size:1em; color:#fff;">{{$org['org_description']}}</div>
 			<p><br/>
+			
+			<h4> <u>Address</u> </h4> <div style="font-size:1em; color:#fff;">{{$org['org_address']}}</div>
+			<p><br/>	
 
 			<h4> <u>Contact us:</u> </h4> <div style="font-size:1em; color:#fff;">{{$org['org_contact']}}</div>
 

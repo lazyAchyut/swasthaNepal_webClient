@@ -29,7 +29,7 @@ Edit Disease Information
 			<div id="error-msg"> {{ $errors->first('d_name') }} </div>
 	<br/>
 		{{Form::label('d_description', 'Description*')}}
-		{{Form::textarea('d_description',$row['d_description'] ,array('required'=>'required','class'=>'form-control'))}}
+		{{Form::textarea('d_description',$row['d_description'] ,array('required'=>'required','class'=>'form-control ckeditor'))}}
 		<div id="error-msg"> {{ $errors->first('d_description') }} </div>
 	<br/>
 		<div class="row">

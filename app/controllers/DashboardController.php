@@ -35,23 +35,24 @@ class DashboardController extends BaseController
 				"d_date"=>date('Y-m-d',strtotime($_POST['d_date'])),
 				"d_location"=>Input::get('d_location'),
 				"d_temperature" => Input::get('d_temperature'),
-				"org_code"=>"124",
+				"org_code"=>"123",
 				"trust_flag"=>"0",
 				"user_id"=>"12"
 				);
+	    	
 
 	    	$datas = json_encode($data);
-
 
 	       	include(public_path()."/httpful.phar");
 	    	try{
 			$url = "http://localhost:8080/SwasthaNepal/disease/saveDisease";
-			$response = Httpful\Request::post($url)->sendsJson()->body($data)->send();
+			$response = Httpful\Request::post($url)->sendsJson()->body($datas)->send();
 				
 		    }
 		    catch(Exception $e){
 		    	die("Server is down");
 		    }
+
 			if(strcmp('TRUE', $response)==0)
 				return View::make('after_login.adddisease')->with('report','Successfully Infomation is Added');
 	    	else
@@ -120,7 +121,7 @@ class DashboardController extends BaseController
 				"user_id"=>"12"
 				);
 
-	    	$datas = json_encode($data);
+	    
 		$datas = json_encode($data);
 
 		include(public_path()."/httpful.phar");
