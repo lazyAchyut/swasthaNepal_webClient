@@ -2,15 +2,11 @@
 
 /*
 |--------------------------------------------------------------------------
-| Application Routes
+| Application Routes of Swastha Nepal Web Client
 |--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
 */
 
+// home page
 Route::get('/', array('as'=>'home', function()
 {
 	if(Auth::check())
@@ -23,8 +19,20 @@ Route::get('/', array('as'=>'home', function()
 
 
 
+// route to about-us page
+Route::get('/about-us',array('as'=>'about-us' , function(){
+	return View::make('before_login.about_us');
+}));
 
-// for search disease from header
+
+
+//route to contact-us page
+Route::get('/contact-us',array('as'=>'contact-us' , function(){
+	return View::make('before_login.contact_us');
+}));
+
+
+// for search disease from header[navigation bar]
 Route::post('/searchresults', 'BeforeLoginController@searchDiseaseByName');
 
 // get specific disease detail
@@ -46,7 +54,7 @@ Route::get('/login',function(){
 
 
 
-
+//validating login, on successful redirects to dashboard else redirect to login page
 Route::post('/login',function(){
 	$credentials = Input::only('password');
 	if(Auth::attempt($credentials)){
@@ -62,7 +70,7 @@ Route::post('/login',function(){
 
 
 
-
+//log out function
 Route::get('/logout',function(){
 	Auth::logout();
 	return Redirect::to('/');
@@ -72,53 +80,59 @@ Route::get('/logout',function(){
 
 
 
+//////////////////////////////////		Admin Panel Routes  	//////////////////////////////////////////
+
+	
+	// filter for all admin prefix
+	Route::filter('admin',array(
+		'before'=>'auth',
+		function(){
+			return Redirect::intended('admin/dashboard');
+		}));
+	Route::when('admin/*', 'auth');
 
 
-// filter for all admin prefix
-Route::filter('admin',array(
-	'before'=>'auth',
-	function(){
-		return Redirect::intended('admin/dashboard');
+	//returns add disease page
+	Route::get('admin/adddisease',array('as'=>'adddisease',function(){
+		return View::make('after_login.adddisease');
 	}));
 
-Route::when('admin/*', 'auth');
+	
+
+	//store disease to database using web service
+	Route::post('admin/adddisease','DashboardController@addDisease');
+
+	Route::get('admin/dashboard',function(){
+		return View::make('after_login.dashboard');
+	});
+
+
+	
+    //get list of contributed disease by logged in organization
+	Route::get('admin/mycontribution',array('as'=>'contribution','uses'=>'DashboardController@myContribution'));
+
+	
+	//edit disease via webclient
+	Route::post('admin/edit','DashboardController@editContribution');
+
+	
+	//update disease info
+	Route::post('admin/update-disease-info','DashboardController@updateDiseaseInfo');
+
+
+	// for organizational detail update form display
+	Route::get('admin/update-organization',array('as'=>'update-organization','uses'=> 'OrganizationController@editOrganization'));
+
+	// for actula update
+	Route::post('admin/update-organization','OrganizationController@updateOrganization');
+
+
+	//to delete disease
+	Route::post('admin/delete','DashboardController@deleteContribution');
 
 
 
-Route::get('admin/adddisease',array('as'=>'adddisease',function(){
-	return View::make('after_login.adddisease');
-}));
-
-Route::post('admin/adddisease','DashboardController@addDisease');
-
-Route::get('admin/dashboard',function(){
-	return View::make('after_login.dashboard');
-});
-
-
-Route::get('admin/mycontribution',array('as'=>'contribution','uses'=>'DashboardController@myContribution'));
-
-Route::post('admin/edit','DashboardController@editContribution');
-
-Route::post('admin/update-disease-info','DashboardController@updateDiseaseInfo');
-
-
-// for organizational detail update form display
-Route::get('admin/update-organization',array('as'=>'update-organization','uses'=> 'OrganizationController@editOrganization'));
-
-// for actula update
-Route::post('admin/update-organization','OrganizationController@updateOrganization');
-
-
-Route::post('admin/delete','DashboardController@deleteContribution');
-
-
-
-
-
-
-
-
+//////////////////////////////////////////// 	Admin Routing Ends 	////////////////////////////////////////////////
 
 
 

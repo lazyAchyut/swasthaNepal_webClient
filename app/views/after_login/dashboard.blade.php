@@ -15,7 +15,10 @@ Swastha Nepal Dashboard
 @stop
 
 @section('body')
+<div style="text-align:center;">
+	<p> <img src="{{asset('_images/openhealth.jpg')}}" alt="" style="border-radius:12px;"> </p>
 
+</div>
 	
 
 

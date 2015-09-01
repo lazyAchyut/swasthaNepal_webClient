@@ -10,7 +10,7 @@ class BeforeLoginController extends BaseController
 		include(public_path()."/httpful.phar");
 
 		try{
-			$url = "http://localhost:8080/SwasthaNepal/disease/getDiseaseByName/".$disease_name;
+			$url = "http://localhost:8080/SwasthaNepal/disease/getDiseaseByName/" . $disease_name;
 			$response = Httpful\Request::get($url)->send();
 			$data['response'] = json_decode($response,true);	
 
@@ -21,6 +21,8 @@ class BeforeLoginController extends BaseController
 		return View::make('before_login.searchResult',$data);
 
 	}
+
+	
 
 	public function getDisease($id)
 	{

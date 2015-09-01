@@ -36,7 +36,7 @@
 			<div class="row">
 				<div class="col-sm-6 col-xs-12">	
 					<div class="outside"><div class="label">Date Posted: </div> {{ $response['d_date'] }}  </div>
-					<div class="outside"><div class="label">Temperature: </div> {{ $response['d_temperature'] }}  </div>
+					<div class="outside"><div class="label">Temperature: </div> {{ $response['d_temperature'] }} <sup>o</sup>C</div>
 					<div class="outside"><div class="label">Location: </div> {{ $response['d_location'] }}  </div>
 				</div>
 

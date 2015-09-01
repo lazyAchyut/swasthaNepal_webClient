@@ -18,7 +18,7 @@ Swastha Nepal | For Development and Sustenance of Open Health Data
 			<img src="{{asset('_images/main_logo.png')}}" class="img-responsive" id="main_logo">
 			<div class="page-header">
 				<h3 style="display:inline;">Welcome to</h3><h1 style="display:inline;"> Swastha Nepal</h1> 
-				<p class="text-right"><small> -For the Development and sustenence of Open Health Data in Nepal</small></p>
+				<p class="text-right"><small> -For the Development and sustenence of Open Health Data Driven System in Nepal</small></p>
 			</div>
 		</header>
 

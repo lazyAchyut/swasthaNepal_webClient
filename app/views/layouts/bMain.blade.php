@@ -32,7 +32,7 @@
 				<div class="collapse navbar-collapse navHeaderCollapse ">
 					<ul class="nav navbar-nav navbar-right" id="menu">
 						<li id="home"><a href="{{URL::route('home')}}" >Home</a></li>
-						<li id="about_us"><a href="#" >About Us</a></li>
+						<li id="about_us"><a href="{{URL::route('about-us')}}" >About Us</a></li>
 						<li id="contact_us"><a href="#">Contact Us</a></li>
 					@section('login_or_logout')
 						
